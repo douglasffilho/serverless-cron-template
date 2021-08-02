@@ -2,7 +2,7 @@ const { LoggerFactory, stringify } = require('./utils');
 const log = LoggerFactory('handler');
 
 const someScript = async () => {
-  log.warn('run a valid script');
+  log('someScript').warn('run a valid script');
   return 'ran some script';
 };
 
@@ -11,11 +11,11 @@ module.exports = {
     try {
       const response = await someScript();
 
-      log.info('%o', response);
+      log('run').info('%o', response);
 
       return { body: stringify({ response }), statusCode: 200 };
     } catch (error) {
-      log.error('%o', error);
+      log('run').error('%o', error);
     }
   },
 };
