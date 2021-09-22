@@ -13,15 +13,27 @@ module.exports.LoggerFactory = (source) => (method) => {
 
   return {
     info(message, ...args) {
-      logger(`INFO :: ${source} :: ${method} :: ${message}`, ...args);
+      logger(
+        `%o - INFO :: ${source} :: ${method} :: ${message}`,
+        new Date(),
+        ...args,
+      );
     },
 
     warn(message, ...args) {
-      logger(`WARN :: ${source} :: ${method} :: ${message}`, ...args);
+      logger(
+        `%o - WARN :: ${source} :: ${method} :: ${message}`,
+        new Date(),
+        ...args,
+      );
     },
 
     error(message, ...args) {
-      logger(`ERROR :: ${source} :: ${method} :: ${message}`, ...args);
+      logger(
+        `%o - ERROR :: ${source} :: ${method} :: ${message}`,
+        new Date(),
+        ...args,
+      );
     },
   };
 };

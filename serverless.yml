@@ -72,7 +72,7 @@ functions:
   run-script:
     handler: src/handler.run
     events:
-      # runs every seccond at 12:00 AM
+      # runs every minute
       - schedule: rate(1 minute)
 
 custom:
